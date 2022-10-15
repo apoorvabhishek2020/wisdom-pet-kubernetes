@@ -36,6 +36,11 @@ spec:
             configMapKeyRef:
               name: postgres-config
               key: postgres-url
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: postgres-config
+              key: postgres-port
 ---
 apiVersion: v1
 kind: Service

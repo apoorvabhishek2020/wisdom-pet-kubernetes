@@ -5,3 +5,4 @@ metadata:
 data:
   postgres-url: postgres-service
   postgres-db: wisdompet
+  postgres-port: "5432"
