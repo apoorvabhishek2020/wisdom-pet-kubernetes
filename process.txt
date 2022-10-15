@@ -1,0 +1,9 @@
+# Note: the tag should be in-line with the appVersion in the Chart.yaml
+podman build --tag wisdom-pet:1.0 -f Dockerfile .
+podman save [--format oci-archive] --output ../githubdash.0.0.1.tar localhost/githubdash:0.0.1
+[KIND_EXPERIMENTAL_PROVIDER=podman] kind load image-archive ../githubdash.0.0.1.tar
+
+helm upgrade --install v1  chart --namespace=gh --values=values.local.yaml --create-namespace
+
+## (One-off edit: /etc/hosts)
+127.0.0.1 nano-test.tnz.irl2.gob.northeurope.rnd.az.amadeus.net.local
